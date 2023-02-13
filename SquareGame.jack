@@ -1,0 +1,51 @@
+class SquareGame {
+    field int isActive;
+    field Square square;
+
+    constructor SquareGame new() {
+        let isActive = 1;
+        let square = Square.new(2,2,32);
+        return this;
+    }
+
+    method void startGame() {
+        // While loop for the game
+        while(isActive = 1) {
+            do square.draw();
+            do handleMovement();
+        }
+        return;
+    }
+
+    method void handleMovement() {
+        var char key;
+        let key = Keyboard.keyPressed();
+        if (key = 0) {
+            return;
+        }
+        if (key = 130) {
+            do square.moveLeft();
+        }
+        if (key = 131) {
+            do square.moveUp();
+        }
+        if (key = 132) {
+            do square.moveRight();
+        }
+        if (key = 133) {
+            do square.moveDown();
+        }
+        if (key = 81) {
+            let isActive = 0;
+        }
+        if (key = 88) {
+            do square.increaseSize();
+        }
+        if (key = 90) {
+            do square.decreaseSize();
+        }
+        do Sys.wait(50);
+        do Screen.clearScreen();
+        return;
+    }
+}
